@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
-const { string, bool, number, array, oneOfType, shape, object, func, node } = PropTypes
+const { string, bool, number, array, oneOfType, shape, object, func, node } =
+  PropTypes;
 
 export const propTypes = {
   url: oneOfType([string, array, object]),
@@ -22,32 +23,28 @@ export const propTypes = {
   previewTabIndex: number,
   fallback: node,
   oEmbedUrl: string,
-  wrapper: oneOfType([
-    string,
-    func,
-    shape({ render: func.isRequired })
-  ]),
+  wrapper: oneOfType([string, func, shape({ render: func.isRequired })]),
   config: shape({
     soundcloud: shape({
-      options: object
+      options: object,
     }),
     youtube: shape({
       playerVars: object,
       embedOptions: object,
-      onUnstarted: func
+      onUnstarted: func,
     }),
     facebook: shape({
       appId: string,
       version: string,
       playerId: string,
-      attributes: object
+      attributes: object,
     }),
     dailymotion: shape({
-      params: object
+      params: object,
     }),
     vimeo: shape({
       playerOptions: object,
-      title: string
+      title: string,
     }),
     file: shape({
       attributes: object,
@@ -60,23 +57,23 @@ export const propTypes = {
       hlsOptions: object,
       hlsVersion: string,
       dashVersion: string,
-      flvVersion: string
+      flvVersion: string,
     }),
     wistia: shape({
       options: object,
       playerId: string,
-      customControls: array
+      customControls: array,
     }),
     mixcloud: shape({
-      options: object
+      options: object,
     }),
     twitch: shape({
       options: object,
-      playerId: string
+      playerId: string,
     }),
     vidyard: shape({
-      options: object
-    })
+      options: object,
+    }),
   }),
   onReady: func,
   onStart: func,
@@ -92,10 +89,11 @@ export const propTypes = {
   onProgress: func,
   onClickPreview: func,
   onEnablePIP: func,
-  onDisablePIP: func
-}
+  onDisablePIP: func,
+  onFullscreenChange: func,
+};
 
-const noop = () => {}
+const noop = () => {};
 
 export const defaultProps = {
   playing: false,
@@ -104,8 +102,8 @@ export const defaultProps = {
   volume: null,
   muted: false,
   playbackRate: 1,
-  width: '640px',
-  height: '360px',
+  width: "640px",
+  height: "360px",
   style: {},
   progressInterval: 1000,
   playsinline: false,
@@ -113,9 +111,9 @@ export const defaultProps = {
   stopOnUnmount: true,
   light: false,
   fallback: null,
-  wrapper: 'div',
+  wrapper: "div",
   previewTabIndex: 0,
-  oEmbedUrl: 'https://noembed.com/embed?url={url}',
+  oEmbedUrl: "https://noembed.com/embed?url={url}",
   config: {
     soundcloud: {
       options: {
@@ -125,8 +123,8 @@ export const defaultProps = {
         download: false,
         sharing: false,
         show_comments: false,
-        show_playcount: false
-      }
+        show_playcount: false,
+      },
     },
     youtube: {
       playerVars: {
@@ -134,31 +132,31 @@ export const defaultProps = {
         showinfo: 0,
         rel: 0,
         iv_load_policy: 3,
-        modestbranding: 1
+        modestbranding: 1,
       },
       embedOptions: {},
-      onUnstarted: noop
+      onUnstarted: noop,
     },
     facebook: {
-      appId: '1309697205772819',
-      version: 'v3.3',
+      appId: "1309697205772819",
+      version: "v3.3",
       playerId: null,
-      attributes: {}
+      attributes: {},
     },
     dailymotion: {
       params: {
         api: 1,
-        'endscreen-enable': false
-      }
+        "endscreen-enable": false,
+      },
     },
     vimeo: {
       playerOptions: {
         autopause: false,
         byline: false,
         portrait: false,
-        title: false
+        title: false,
       },
-      title: null
+      title: null,
     },
     file: {
       attributes: {},
@@ -169,27 +167,27 @@ export const defaultProps = {
       forceDASH: false,
       forceFLV: false,
       hlsOptions: {},
-      hlsVersion: '0.14.16',
-      dashVersion: '3.1.3',
-      flvVersion: '1.5.0'
+      hlsVersion: "0.14.16",
+      dashVersion: "3.1.3",
+      flvVersion: "1.5.0",
     },
     wistia: {
       options: {},
       playerId: null,
-      customControls: null
+      customControls: null,
     },
     mixcloud: {
       options: {
-        hide_cover: 1
-      }
+        hide_cover: 1,
+      },
     },
     twitch: {
       options: {},
-      playerId: null
+      playerId: null,
     },
     vidyard: {
-      options: {}
-    }
+      options: {},
+    },
   },
   onReady: noop,
   onStart: noop,
@@ -205,5 +203,6 @@ export const defaultProps = {
   onProgress: noop,
   onClickPreview: noop,
   onEnablePIP: noop,
-  onDisablePIP: noop
-}
+  onDisablePIP: noop,
+  onFullscreenChange: noop,
+};
